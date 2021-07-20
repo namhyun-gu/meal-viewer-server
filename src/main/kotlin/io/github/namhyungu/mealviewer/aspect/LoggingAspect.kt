@@ -32,9 +32,9 @@ class LoggingAspect {
   )
   fun loggingController(joinPoint: ProceedingJoinPoint): Any? {
     var result: Any? = null
-    logger.info("----------> Executed ${joinPoint.signature.name}")
+    logger.info("---> Executed ${joinPoint.signature.name}")
     val time = executeTime { result = joinPoint.proceed() }
-    logger.info("----------> Finished ${joinPoint.signature.name} ({} ms)", time)
+    logger.info("<--- Finished ${joinPoint.signature.name} ({} ms)", time)
     return result
   }
 }
